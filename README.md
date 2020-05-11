@@ -38,15 +38,13 @@ You can send an email through the next endpoint
 
 ## Send email through the API
 ```
-POST http://localhost:8083/payments/compensations
+POST http://localhost:8083/send_email
 
 Parameters:
 {
-  "email": "receiver@example.com",
+  "subject": "My subject"
   "message": "my message",
-  "service": "gas",
-  "status_payment": "unsupported"
+  "email": "receiver@example.com",
 }
 ```
 
-The parameter `status_payment` only supports the values: `supported` and `unsupported`

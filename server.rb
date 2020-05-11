@@ -9,8 +9,7 @@ before do
   @params = JSON.parse(message, symbolize_names: true) if message
 end
 
-post '/payments/compensations' do
-  subject = filter_message
+post '/send_email' do
   result = send_message(subject)
 
   response = if result
@@ -39,22 +38,6 @@ def send_message(subject)
   })
 end
 
-def filter_message
-  if status_payment == 'supported'
-    supported_compensation_payment 
-  else
-    unsupported_compensation_payment
-  end
-end
-
-def unsupported_compensation_payment
-  "Pago de compensanción no admitido para servicio de #{service}"
-end
-
-def supported_compensation_payment
-  "Pago de compensanción admitido para servicio de #{service}"
-end
-
 def message
   @params[:message]
 end
@@ -63,10 +46,6 @@ def email
   @params[:email]
 end
 
-def service
-  @params[:service]
-end
-
-def status_payment
-  @params[:status_payment]
+def subject
+  @params[:subject]
 end
