@@ -16,6 +16,12 @@ USERNAME="your_email@example.com"
 PASSWORD="write_your_pass_here"
 ```
 
+if you are using docker to deploy this you can assign the environmen variables like:
+
+```
+docker run --name my_name -e USERNAME="your_email_account" -e PASSWORD="your_password" -p your_local_port:4567 image_name
+```
+
 # How to run with docker?
 
 To build and run the image you can run the `start.sh` file in your terminal
@@ -42,7 +48,7 @@ POST http://localhost:8083/send_email
 
 Parameters:
 {
-  "subject": "My subject"
+  "subject": "My subject",
   "message": "my message",
   "email": "receiver@example.com",
 }

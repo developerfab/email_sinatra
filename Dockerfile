@@ -5,8 +5,8 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 RUN gem install bundler
 
-ADD . /app
 RUN bundle install
+ADD . /app
 
 EXPOSE 4567
 
